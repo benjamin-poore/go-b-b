@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/alexedwards/scs/v2"
-	"github.com/benjamin-poore/project/pkg/config"
-	"github.com/benjamin-poore/project/pkg/handlers"
-	"github.com/benjamin-poore/project/pkg/render"
+	"github.com/benjamin-poore/project/internal/config"
+	"github.com/benjamin-poore/project/internal/handlers"
+	"github.com/benjamin-poore/project/internal/render"
 	"log"
 	"net/http"
 	"time"
