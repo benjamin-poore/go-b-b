@@ -12,7 +12,7 @@ func routes(app *config.AppConfig) http.Handler {
 	mux := chi.NewRouter()
 
 	mux.Use(middleware.Recoverer)
-	mux.Use(WriteToConsole)
+	//mux.Use(WriteToConsole)
 	mux.Use(NoSurf)
 	mux.Use(SessionLoad)
 
@@ -27,6 +27,8 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Post("/search-availability-json", handlers.Repo.AvailabilityJSON)
 
 	mux.Get("/make-reservation", handlers.Repo.Reservations)
+	mux.Post("/make-reservation", handlers.Repo.PostReservations)
+	mux.Get("/reservation-summary", handlers.Repo.ReservationSummary)
 
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
